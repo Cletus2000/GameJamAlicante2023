@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &180785342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 575247490}
   - component: {fileID: 575247489}
   - component: {fileID: 575247493}
-  - component: {fileID: 575247494}
   - component: {fileID: 575247495}
   m_Layer: 0
   m_Name: Sphere (2)
@@ -275,7 +274,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!23 &575247490
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -357,24 +356,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!255 &575247494
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575247488}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1619013236}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 3.5, y: 0}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!232 &575247495
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -522,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &769703774
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -632,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &857403371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -762,7 +743,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -794,7 +775,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.36283112
+        value: 0.14159393
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -806,8 +787,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.2924528, g: 0.20758928, b: 0, a: 1}
+      key1: {r: 0.29411766, g: 0.20784315, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -865,15 +846,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072963693}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 559ebaf3a292521418a02d4bf3280c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bola1: {fileID: 1619013233}
   bola2: {fileID: 575247488}
-  distance: 3
-  rb: {fileID: 0}
+  lineRenderer: {fileID: 1072963694}
+  velocidadGiro: 3
+  compensar: 3.4
 --- !u!1 &1383143915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +987,6 @@ GameObject:
   - component: {fileID: 1619013237}
   - component: {fileID: 1619013236}
   - component: {fileID: 1619013235}
-  - component: {fileID: 1619013239}
   - component: {fileID: 1619013240}
   m_Layer: 0
   m_Name: Sphere (1)
@@ -1059,7 +1040,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: ddb99a56afba7974cbd3c1ea7f8530ab, type: 2}
   m_Interpolate: 0
@@ -1116,24 +1097,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619013233}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!255 &1619013239
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619013233}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 575247489}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -3.5, y: 0}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!232 &1619013240
 DistanceJoint2D:
   m_ObjectHideFlags: 0
