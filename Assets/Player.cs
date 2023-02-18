@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     Vector3 distancia123 = new Vector3();
         Vector2 distancia122=new Vector2();
 
+    public float sensibilidadControl=0.05f;
+
     
 
     private void Start()
@@ -69,7 +71,7 @@ public class Player : MonoBehaviour
         else estirada = false;
 
         //PLAYER 1
-        if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0.05)
+        if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal1") > sensibilidadControl)
         {
             //Limitaciones para evitar volar
             if( (!b1TocaSuelo&&b2TocaSuelo)||(b1TocaSuelo&&b2TocaSuelo) )
@@ -82,7 +84,7 @@ public class Player : MonoBehaviour
                     rbB1.velocity -= distancia212.normalized;
             }
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < -0.05)
+        if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal1") < -sensibilidadControl)
         {
             if((!b1TocaSuelo && b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo))
             {
@@ -102,23 +104,25 @@ public class Player : MonoBehaviour
 
 
         //PLAYER 2
-        if (Input.GetKey(KeyCode.RightArrow) && ((b1TocaSuelo && !b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo)))
-        {
-            distancia123 = tB1.position - tB2.position;
-            distancia122 = new Vector2(distancia123.x, distancia123.y);
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal2") > sensibilidadControl)
+            if((b1TocaSuelo && !b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo))
+            {
+                distancia123 = tB1.position - tB2.position;
+                distancia122 = new Vector2(distancia123.x, distancia123.y);
             
-            rbB2.velocity = Vector2.Perpendicular(distancia122).normalized * velocidadGiro;
-            if (!estirada)
-                rbB2.velocity -= distancia122.normalized;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) && ((b1TocaSuelo && !b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo)))
-        {
-            distancia212 = new Vector2(distancia213.x, distancia213.y);
+                rbB2.velocity = Vector2.Perpendicular(distancia122).normalized * velocidadGiro;
+                if (!estirada)
+                    rbB2.velocity -= distancia122.normalized;
+            }
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal2") < -sensibilidadControl)
+            if((b1TocaSuelo && !b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo))
+            {
+                distancia212 = new Vector2(distancia213.x, distancia213.y);
             
-            rbB2.velocity = Vector2.Perpendicular(distancia212).normalized * velocidadGiro;
-            if (!estirada)
-                rbB2.velocity += distancia212.normalized;
-        }
+                rbB2.velocity = Vector2.Perpendicular(distancia212).normalized * velocidadGiro;
+                if (!estirada)
+                    rbB2.velocity += distancia212.normalized;
+            }
         
         //...brum brum
     }
