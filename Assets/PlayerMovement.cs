@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public bool modoPalo=true;
         public void ModoPalo()
             { modoPalo = !modoPalo; }
+        Cuerda cuerda;
     public GameObject bola1;
     public GameObject bola2;
         Transform tB1;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         tB2 = bola2.transform;
         rbB1 = bola1.GetComponent<Rigidbody2D>();
         rbB2 = bola2.GetComponent<Rigidbody2D>();
+        cuerda = GetComponent<Cuerda>();
     }
 
     public float sensibilidadControl = 0.5f;
@@ -35,7 +37,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(modoPalo)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ModoPalo();
+            cuerda.CambiarPaloCuerda();
+        }
+
+        if (modoPalo)
         {
             //Player 1
             if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal1") > sensibilidadControl)
