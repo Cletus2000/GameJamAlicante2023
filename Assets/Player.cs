@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
 
 
 
-    bool b1TocaSuelo;
-    bool b2TocaSuelo;
+    public bool b1TocaSuelo;
+    public bool b2TocaSuelo;
         public void bola1TocaSuelo(bool a)
             { b1TocaSuelo = a; }
         public void bola2TocaSuelo(bool a)
@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
 
     public void CambiarPaloCuerda(bool a)
     {
+        Debug.Log("boton");
         bola1.GetComponent<DistanceJoint2D>().maxDistanceOnly = a;
         bola2.GetComponent<DistanceJoint2D>().maxDistanceOnly = a;
     }
