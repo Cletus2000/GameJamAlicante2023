@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public float velocidadGiro=2.5f;
     bool estirada;
     public float compensar = 3.4f;
+    public Transform[] posicionesCadena;
+            Vector3[] posicionesCadena2;
+
 
 
     bool b1TocaSuelo;
@@ -37,13 +40,27 @@ public class Player : MonoBehaviour
         tB2 = bola2.transform;
         rbB1 = bola1.GetComponent<Rigidbody2D>();
         rbB2 = bola2.GetComponent<Rigidbody2D>();
+        if (!bola2.GetComponent<DistanceJoint2D>().maxDistanceOnly)
+            lineRenderer.positionCount = 2;
+        else lineRenderer.positionCount = posicionesCadena.Length;
     }
 
     void Update()
     {
         //Cuerda visual
-        lineRenderer.SetPosition(0, tB1.position);
-        lineRenderer.SetPosition(1, tB2.position);
+        if(bola2.GetComponent<DistanceJoint2D>().maxDistanceOnly)
+        {
+            posicionesCadena2 = new Vector3[posicionesCadena.Length];
+            for (int i = 0; i < posicionesCadena.Length; i++)
+                posicionesCadena2[i] = posicionesCadena[i].position;
+
+            lineRenderer.SetPositions(posicionesCadena2);
+        }
+        else
+        {
+            lineRenderer.SetPosition(0, tB1.position);
+            lineRenderer.SetPosition(1, tB2.position);
+        }
 
         //Cosas para contrarestar la caida
         distancia213 = tB2.position - tB1.position;
@@ -115,6 +132,9 @@ public class Player : MonoBehaviour
         DistanceJoint2D b1 = bola1.GetComponent<DistanceJoint2D>();
         b1.maxDistanceOnly = !b1.maxDistanceOnly;
         bola2.GetComponent<DistanceJoint2D>().maxDistanceOnly=b1.maxDistanceOnly;
+        if (!b1.maxDistanceOnly)
+            lineRenderer.positionCount = 2;
+        else lineRenderer.positionCount = posicionesCadena.Length;
     }
 
     public void CambiarPaloCuerda(bool a)
