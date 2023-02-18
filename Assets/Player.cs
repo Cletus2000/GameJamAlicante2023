@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         else lineRenderer.positionCount = posicionesCadena.Length;
     }
 
+    public float giro;
     void Update()
     {
         //Cuerda visual
@@ -97,10 +98,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        /*
-         * FALTA HACER LO DE QUE AVANCEN COMO UN COCHE
-         */
-
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rbB1.AddTorque(-giro);
+            rbB2.AddTorque(giro);
+        }
 
 
         //PLAYER 2

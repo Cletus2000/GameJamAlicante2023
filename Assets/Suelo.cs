@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Suelo : MonoBehaviour
 {
-    public Player player;
+    PlayerMovement player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
+    }
     void OnTriggerEnter2D(Collider2D c)
     {
         if (c.name == "Bola 1")
