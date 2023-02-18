@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sonido : MonoBehaviour
 {
     [Header("Musica de fondo")]
+    public AudioSource musica0;
     public float delay1;
     public AudioSource musica;
     public float delay2;
@@ -19,6 +20,7 @@ public class Sonido : MonoBehaviour
 
     void Start()
     {
+        musica0.PlayDelayed(delay1);
         musica.PlayDelayed(delay1);
         musica2.PlayDelayed(delay2);
         //Invoke("Volver", 0);
