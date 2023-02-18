@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         else estirada = false;
 
         //PLAYER 1
-        if (Input.GetKey(KeyCode.D) )
+        if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0.05)
         {
             //Limitaciones para evitar volar
             if( (!b1TocaSuelo&&b2TocaSuelo)||(b1TocaSuelo&&b2TocaSuelo) )
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
                     rbB1.velocity -= distancia212.normalized;
             }
         }
-        if (Input.GetKey(KeyCode.A) )
+        if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < -0.05)
         {
             if((!b1TocaSuelo && b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo))
             {
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
 
 
 
-    //El boton para cambiar de cuerda a palo y viceversa llama a este método
+    //El boton para cambiar de cuerda a palo y viceversa llama a este mï¿½todo
     public void CambiarPaloCuerda()
     {
         DistanceJoint2D b1 = bola1.GetComponent<DistanceJoint2D>();
