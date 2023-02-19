@@ -21,6 +21,6 @@ public class SeguimientoCamara : MonoBehaviour
 
     //Giro tridimensional
         if(giroTridimensional)
-            {transform.LookAt(posicionSuavizada);}
+            {transform.LookAt(posicionObjetivo-offset);}
     }
 }

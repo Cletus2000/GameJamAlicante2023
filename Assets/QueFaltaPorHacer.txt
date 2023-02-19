@@ -1,0 +1,8 @@
+Decorar el plano verde con hojas y arboles
+SFX
+particulas
+post procesado
+Fondo del menu inicial
+condicion de victoria
+Pantalla de victoria
+Cambiar las esferas por ruedas (carlos)
