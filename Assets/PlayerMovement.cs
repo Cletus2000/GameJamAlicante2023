@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
             { b1TocaSuelo = a; }
         public void bola2TocaSuelo(bool a)
             { b2TocaSuelo = a; }
+    public AudioSource pc;
+    public AudioSource cp;
 
     private void Start()
     {
@@ -41,6 +43,9 @@ public class PlayerMovement : MonoBehaviour
         {
             ModoPalo();
             cuerda.CambiarPaloCuerda();
+            if (!modoPalo)
+                pc.Play();
+            else cp.Play();
         }
 
         if (modoPalo)

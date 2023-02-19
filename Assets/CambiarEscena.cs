@@ -7,8 +7,7 @@ public class CambiarEscena : MonoBehaviour
 {
     public int escena;
 
-    public cambiarEscena(int numEscena){
-        numEscena = escena;
-        SceneManagement.LoadScene(numEscena);
+    public void cambiaEscena(){
+        SceneManager.LoadScene(escena);
     }
 }
