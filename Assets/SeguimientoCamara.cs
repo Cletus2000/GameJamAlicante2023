@@ -8,7 +8,7 @@ public class SeguimientoCamara : MonoBehaviour
     public Vector3 offset = new Vector3 (0,0,-10);
     public bool giroTridimensional = false;
 
-    void LateUpdate()
+    void Update()
     {
     //Minima separacion en el eje z para que no atraviese el escenario por detras
         if(offset.z>-1)
@@ -21,6 +21,6 @@ public class SeguimientoCamara : MonoBehaviour
 
     //Giro tridimensional
         if(giroTridimensional)
-            {transform.LookAt(posicionObjetivo-offset);}
+            {transform.LookAt(posicionSuavizada-offset);}
     }
 }

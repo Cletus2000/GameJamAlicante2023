@@ -1668,7 +1668,7 @@ MonoBehaviour:
   cp: {fileID: 392306568871218011}
   sensibilidadControl: 0.5
   velocidadGiro: 5
-  giro: 5
+  giro: 10
 --- !u!1 &2844954197854455963
 GameObject:
   m_ObjectHideFlags: 0

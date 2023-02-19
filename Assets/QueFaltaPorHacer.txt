@@ -1,5 +1,1 @@
 particulas
-j Fondo del menu inicial
-condicion de victoria
-Pantalla de victoria
-Cambiar las esferas por ruedas (carlos)
