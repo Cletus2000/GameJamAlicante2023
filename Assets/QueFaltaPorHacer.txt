@@ -1,7 +1,7 @@
 Decorar el plano verde con hojas y arboles
 SFX
 particulas
-post procesado
+j post procesado
 Fondo del menu inicial
 condicion de victoria
 Pantalla de victoria
