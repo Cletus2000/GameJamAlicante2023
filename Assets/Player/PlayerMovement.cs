@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
                 pc.Play();
             else cp.Play();
         }
+        if(Input.GetKeyDown(KeyCode.Backspace))
+            { SceneManager.LoadScene(1); }
 
         if (modoPalo)
         {
@@ -78,21 +81,17 @@ public class PlayerMovement : MonoBehaviour
         {
             //Player 1
             if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal1") > sensibilidadControl)
-                rbB1.AddTorque(-giro);
+                rbB1.AddTorque(-giro * Time.deltaTime);
             if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal1") < -sensibilidadControl)
-                rbB1.AddTorque(giro);
+                rbB1.AddTorque(giro * Time.deltaTime);
 
 
             //Player 2
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal2") > sensibilidadControl)
-                rbB2.AddTorque(-giro);
+                rbB2.AddTorque(-giro * Time.deltaTime);
 
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal2") < -sensibilidadControl)
-                rbB2.AddTorque(giro);
+                rbB2.AddTorque(giro * Time.deltaTime);
         }
     }
 }
-
-
-//Cambiar todos los suelos a este script para que detecten cuando toca y cuando no
-//Cambiar el boton a la funcion de este para cambiar bien entre palo y cuerda pero mantener la llamada al script Cuerda

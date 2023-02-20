@@ -9,7 +9,7 @@ using System.Linq;
 
 public class Menu : MonoBehaviour
 {
-
+    public GameObject loading;
     //Fullscreen
         public Toggle ToggleFullscreen;
 
@@ -64,13 +64,13 @@ public class Menu : MonoBehaviour
     }
 
     public void Jugar()
-        {SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);}
+    {
+        loading.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
 
     public void Salir()
         {Application.Quit();}
-
-
-
 
 
 }
