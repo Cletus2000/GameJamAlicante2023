@@ -57,24 +57,24 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal1") > sensibilidadControl)
                 if( (!b1TocaSuelo&&b2TocaSuelo)||(b1TocaSuelo&&b2TocaSuelo) )
                 {
-                    rbB1.velocity = Vector2.Perpendicular(tB2.position - tB1.position).normalized * velocidadGiro;
+                    rbB1.linearVelocity = Vector2.Perpendicular(tB2.position - tB1.position).normalized * velocidadGiro;
                 }
             if (Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal1") < -sensibilidadControl)
                 if((!b1TocaSuelo && b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo))
                 {
-                    rbB1.velocity = Vector2.Perpendicular(tB1.position - tB2.position).normalized * velocidadGiro;
+                    rbB1.linearVelocity = Vector2.Perpendicular(tB1.position - tB2.position).normalized * velocidadGiro;
                 }
 
             //Player 2
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal2") > sensibilidadControl)
                 if( (b1TocaSuelo&&!b2TocaSuelo)||(b1TocaSuelo&&b2TocaSuelo) )
                 {
-                    rbB2.velocity = Vector2.Perpendicular(tB1.position - tB2.position).normalized * velocidadGiro;
+                    rbB2.linearVelocity = Vector2.Perpendicular(tB1.position - tB2.position).normalized * velocidadGiro;
                 }
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal2") < -sensibilidadControl)
                 if((b1TocaSuelo && !b2TocaSuelo) || (b1TocaSuelo && b2TocaSuelo))
                 {
-                    rbB2.velocity = Vector2.Perpendicular(tB2.position - tB1.position).normalized * velocidadGiro;
+                    rbB2.linearVelocity = Vector2.Perpendicular(tB2.position - tB1.position).normalized * velocidadGiro;
                 }
         }
         else
